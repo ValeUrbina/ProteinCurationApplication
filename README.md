@@ -1,1 +1,1 @@
-ProteinCurationApplication
+# ProteinCurationApp
