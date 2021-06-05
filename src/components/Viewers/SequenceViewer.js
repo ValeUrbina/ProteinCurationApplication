@@ -24,7 +24,7 @@ function SequenceViewer() {
 
   return (
     <>
-      <div id="yourDiv" className={classes.biojs_msa_labels} style={{ height: "39vh", backgroundColor: "#FFFFFF", margin: "10px" }} >
+      <div id="yourDiv" className={classes.biojs_msa_labels} style={{ height: "38vh", backgroundColor: "#FFFFFF", margin: "10px" }} >
         {wait ? (<Helmet>
           <script>{
             `try{ var opts = {

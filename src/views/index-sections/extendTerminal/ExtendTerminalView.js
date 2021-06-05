@@ -41,10 +41,10 @@ export default function View(props) {
     const changeValue = (e, setter, setErr) => {
         if (isNaN(e.target.value)) {
             setErr("The value must be numeric");
+        } else {
+            setter(e.target.value);
+            setErr("");
         }
-        setter(e.target.value);
-        setErr("");
-
     }
 
     function CloseWindow() {

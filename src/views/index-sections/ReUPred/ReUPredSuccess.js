@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 //materialui components
-import ErrorOutlineIcon from "@material-ui/icons/ErrorOutline";
+import CheckIcon from "@material-ui/icons/Check";
 
 const useStyles = makeStyles((theme) => ({
     formStyle: {
@@ -16,28 +16,19 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
-export default function ReUPredError(props) {
+export default function SuccessWindow(props) {
     const classes = useStyles();
 
     return (
         <Grid className={classes.formStyle}>
             <div style={{ textAlign: "center" }}>
-                <ErrorOutlineIcon
-                    style={{ color: "orangered", fontSize: "xxx-large" }}
-                />
+                <CheckIcon style={{ color: "yellowgreen", fontSize: "xxx-large" }} />
             </div>
             <div
                 className={classes.loadingStyle}
-                style={{ padding: "50px 0px 10px 0px", color: "orangered" }}
+                style={{ padding: "50px 0px 80px 0px", color: "yellowgreen" }}
             >
-                An unexpected error has occurred in the ReUPred service
-        </div>
-            <div
-                className={classes.loadingStyle}
-                style={{ padding: "10px 0px 80px 0px", color: "orangered" }}
-            >
-                Please contact technical service
+                ReUPred executed successfully
         </div>
         </Grid>
     );

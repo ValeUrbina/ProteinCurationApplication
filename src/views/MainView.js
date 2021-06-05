@@ -20,7 +20,7 @@ import BackspaceIcon from "@material-ui/icons/Backspace";
 import DeleteIcon from '@material-ui/icons/Delete';
 //Botones de la barra superior
 import { ReactComponent as ReUPred } from "../assets/img/buttonsVale/ReUPred.svg";
-import { ReactComponent as WebLogo } from "../assets/img/buttonsVale/WebLogo.svg";
+// import { ReactComponent as WebLogo } from "../assets/img/buttonsVale/WebLogo.svg";
 import { ReactComponent as HMMER } from "../assets/img/buttonsVale/HMMER.svg";
 import { ReactComponent as RepeatsDB } from "../assets/img/buttonsVale/RepeatsDB.svg";
 import SvgIcon from "@material-ui/core/SvgIcon";
@@ -39,16 +39,17 @@ import MissingModal from "views/index-sections/MissingModal.js";
 import PFAMOUTPUTModal from "views/index-sections/PFAMOUTPUTModal.js";
 import HMMERModal from "views/index-sections/HMMERModal.js";
 import RepeatsDBModal from "views/index-sections/RepeatsDBModal.js";
+import ReUPredModal from "views/index-sections/ReUPredModal.js";
 import SaveModal from "views/index-sections/SaveModal.js";
 import OpenModal from "views/index-sections/OpenModal.js";
 //Componente terminal
 import { ReactTerminal } from "react-terminal";
 
-const drawerWidth = 185;
+const drawerWidth = 190;
 
 const funcLbls = ["SPCleaner", "Whole sequence", "Delete fragments", "efetch", "DESC",
   "Create Align", "Extend N/C Terminal", "pfnew", "pfbuild", "pfmake",
-  "Next DUF", "pfci", "Missing", "Overlap", "PFAMOUTPUT", "Open"];
+  "Next DUF", "pfci", "Missing", "Overlap", "PFAMOUTPUT"];
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -210,7 +211,7 @@ function Index() {
           <div className={classes.verticalBox}>
             <IconButton style={{ padding: "5px 0px 0px 0px" }}>
               <SvgIcon viewBox="0 0 117 50" style={{ width: "117px", height: "42px" }}
-                component={ReUPred}
+                component={ReUPred} onClick={(e) => setOpen("ReUPred")}
               ></SvgIcon>
             </IconButton>
 
@@ -266,6 +267,7 @@ function Index() {
         <PFAMOUTPUTModal open={open === "PFAMOUTPUT"} handleClose={handleClose} />
         <HMMERModal open={open === "HMMER"} handleClose={handleClose} />
         <RepeatsDBModal open={open === "RepeatsDB"} handleClose={handleClose} />
+        <ReUPredModal open={open === "ReUPred"} handleClose={handleClose} />
         <SaveModal open={open === "Save"} handleClose={handleClose} />
         <OpenModal open={open === "Open"} handleClose={handleClose} />
 

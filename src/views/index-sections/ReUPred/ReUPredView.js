@@ -8,11 +8,8 @@ import TextField from "@material-ui/core/TextField";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-//dropdown
-import ComboBoxHighlight from "../../../components/SearchBar/ComboBoxHighlight"
+//search
 import SearchBox from "../../../components/SearchBar/SearchBox"
-//Viewer
-import StructureViewer from "../../../components/Viewers/StructureViewer";
 
 const useStyles = makeStyles((theme) => ({
     labelStyle: {
@@ -53,23 +50,16 @@ const list2 = [
     { name: 'Q5H0Y9.1/216-248', seq: 'GGKPALETVQRLLPVLCQPPYGLTEQVVAIASHD' },
 ];
 
-const chainEx = `MFKYLTPIFLCTAAISFQAQADDTMLMLLKKDNATYLSWSTDAGNVVRQDVYRSTSSA
-QAGSEKIAELNSSDRTFTDLTANPQSDYWYWVDTVSGNNSVLKSNAASTAPAPLRAAP
-LKAASPECKAGAVIKDKTVDCGGITLGLSCSGDSDKQPPVITLENATIKNLRISEKGG
-SDGIHCKSGNCRIENVIWEDICEDAATNLGKTMTIVGGVAHNTTNGPGGKPDKVLQQN
-AKNSHTIVQGNFTLTGQHGKLWRSCGDCTNNGGPRNLTIISATVNGTIDSIAGVNRNF
-GDVAEIRDLRIKGYKEGKPPVCEEFNGVEKGKGKSDKYGEFWDTKNCKVSRSNVKPL`
-
 export default function View(props) {
     const classes = useStyles();
     const handleClose = props.handleClose;
-    const showRepeatsDBResaultWindow = props.showRepeatsDBResaultWindow;
+    const showReUPredResaultWindow = props.showReUPredResaultWindow;
     const accNumber = props.accNumber;
     const [accNumbers, setAccNumbers] = React.useState(list2);
     const PDBID = props.PDBID;
     const [PDBIDs, setPDBIDs] = React.useState(list);
-    const [chain, setChain] = React.useState(chainEx);
-    const [selectedIndex, setSelectedIndex] = React.useState();
+    const [selectedIndexAccNum, setSelectedIndexAccNum] = React.useState();
+    const [selectedIndexPDB, setSelectedIndexPDB] = React.useState();
 
     function CloseWindow() {
         props.setAccNumber("");
@@ -79,8 +69,8 @@ export default function View(props) {
         handleClose();
     }
 
-    const handleListItemClick = (event, index, itemName) => {
-        setSelectedIndex(index);
+    const handleListItemClick = (event, setter, index, itemName) => {
+        setter(index);
         //props.setAccNumber(itemName)
     };
 
@@ -88,21 +78,10 @@ export default function View(props) {
         <Grid>
             <Grid container direction="row" justify="flex-start" alignItems="center" style={{ padding: "0px 0px 15px 0px" }}>
                 <Grid item xs={6}>
-                    <SearchBox list={accNumbers} set={props.setAccNumber} tag={"Search Acc.Number..."} />
+                    <SearchBox list={accNumbers} set={props.setAccNumber} tag={"Search Acc. Number..."} />
                 </Grid>
-                <Grid item xs={3}>
-                    <ComboBoxHighlight list={PDBIDs} set={props.setPDBID} />
-                </Grid>
-                <Grid item xs={3}>
-                    <Button
-                        className="btn-round mr-1"
-                        color="primary"
-                        outline
-                        type="button"
-                        onClick={(e) => showRepeatsDBResaultWindow()}
-                    >
-                        Corresponding units
-                    </Button>
+                <Grid item xs={6}>
+                    <SearchBox list={accNumbers} set={props.setAccNumber} tag={"Search PDB ID..."} />
                 </Grid>
             </Grid>
             <Grid container justify="center" spacing={2}>
@@ -112,8 +91,8 @@ export default function View(props) {
                             {accNumbers.map((item, index) => (
                                 <ListItem
                                     button
-                                    selected={selectedIndex === index}
-                                    onClick={(event) => handleListItemClick(event, index, item.name)}
+                                    selected={selectedIndexAccNum === index}
+                                    onClick={(event) => handleListItemClick(event, setSelectedIndexAccNum, index, item.name)}
                                 >
                                     <ListItemText
                                         primary={item.name + " " + item.seq}
@@ -123,19 +102,21 @@ export default function View(props) {
                         </List>
                     </Grid>
                 </Grid>
-                <Grid container direction="column" justify="flex-start" xs={6} alignItems="flex-start" style={{ padding: "0px 30px 0px 0px" }}>
-                    <Grid item>
-                        <StructureViewer />
-                    </Grid>
-                    <Grid item>
-                        <TextField className={classes.inputStyle}
-                            disabled
-                            multiline
-                            rows={7}
-                            variant="outlined"
-                            value={chain}
-                            type="text"
-                        />
+                <Grid container direction="column" justify="flex-start" xs={6} >
+                    <Grid item style={{ padding: "0px 15px 0px 30px" }}>
+                        <List className={classes.root} dense={true}>
+                            {PDBIDs.map((item, index) => (
+                                <ListItem
+                                    button
+                                    selected={selectedIndexPDB === index}
+                                    onClick={(event) => handleListItemClick(event, setSelectedIndexPDB, index, item.name)}
+                                >
+                                    <ListItemText
+                                        primary={item.name}
+                                    />
+                                </ListItem>
+                            ))}
+                        </List>
                     </Grid>
                 </Grid>
             </Grid>
@@ -150,6 +131,17 @@ export default function View(props) {
                         onClick={(e) => CloseWindow()}
                     >
                         Close
+                    </Button>
+                </Grid>
+                <Grid item>
+                    <Button
+                        className="btn-round mr-1"
+                        color="default"
+                        type="button"
+                        style={{ width: "90px" }}
+                        onClick={(e) => showReUPredResaultWindow()}
+                    >
+                        Run
                     </Button>
                 </Grid>
             </Grid>

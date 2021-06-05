@@ -47,12 +47,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Highlights(props) {
+export default function SearchBox(props) {
     const classes = useStyles();
     return (
         <Autocomplete
             id="highlights-demo"
-            style={{ width: 200 }}
+            style={{ width: 300 }}
             options={props.list}
             getOptionLabel={(option) => option.name}
             renderInput={(params) => (
@@ -64,7 +64,7 @@ export default function Highlights(props) {
                         label="SearchBox"
                         variant="outlined"
                         margin="normal"
-                        placeholder="Search…"
+                        placeholder={props.tag}
                         classes={{
                             root: classes.inputRoot,
                             input: classes.inputInput,

@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function ReUPredError(props) {
+export default function RepeatsDBError(props) {
     const classes = useStyles();
 
     return (
@@ -31,7 +31,7 @@ export default function ReUPredError(props) {
                 className={classes.loadingStyle}
                 style={{ padding: "50px 0px 10px 0px", color: "orangered" }}
             >
-                An unexpected error has occurred in the ReUPred service
+                An unexpected error has occurred in the RepeatsDB service
         </div>
             <div
                 className={classes.loadingStyle}
