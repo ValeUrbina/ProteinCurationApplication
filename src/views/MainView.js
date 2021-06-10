@@ -45,6 +45,8 @@ import OpenModal from "views/index-sections/OpenModal.js";
 //Componente terminal
 import { ReactTerminal } from "react-terminal";
 
+const url = "http://ec2-3-218-86-203.compute-1.amazonaws.com:8000/";
+
 const drawerWidth = 190;
 
 const funcLbls = ["SPCleaner", "Whole sequence", "Delete fragments", "efetch", "DESC",
