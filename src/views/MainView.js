@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbarTitle: {
     backgroundColor: "#000000",
-    minHeight: "49px",
+    minHeight: "40px",
     color: "#FFFFFF",
   },
   icon: {
@@ -92,7 +92,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "40px",
   },
   TitleText: {
-    fontSize: "28px",
+    fontSize: "20px",
     font: "Roboto",
   },
   toolbarOptions: {
@@ -114,6 +114,10 @@ const useStyles = makeStyles((theme) => ({
 function Index() {
   const classes = useStyles();
   document.documentElement.classList.remove("nav-open");
+  const [projectName, setProjectName] = React.useState("");
+  const [curatorID, setCuratorID] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [pfcode, setPfcode] = React.useState("PF03377");
 
   React.useEffect(() => {
     document.body.classList.add("index");
@@ -168,7 +172,7 @@ function Index() {
 
           <Grid container justify="center">
             <Grid item className={classes.TitleText}>
-              Title
+              {"Project " + pfcode}
             </Grid>
           </Grid>
         </Toolbar>
@@ -273,7 +277,7 @@ function Index() {
         <SaveModal open={open === "Save"} handleClose={handleClose} />
         <OpenModal open={open === "Open"} handleClose={handleClose} />
 
-        <div style={{ height: "40vh" }}>
+        <div style={{ height: "38vh" }}>
           <MyTerminal />
         </div>
 

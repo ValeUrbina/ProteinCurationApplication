@@ -60,16 +60,16 @@ export default function RepeatsDBModal(props) {
     const open = props.open;
     const handleClose = props.handleClose;
     const [window, setWindow] = React.useState("view");
-    const [accNumber, setAccNumber] = React.useState("");
-    const [PDBID, setPDBID] = React.useState("");
+    const [accNumber, setAccNumber] = React.useState("Q5GYF3");
+    const [PDBID, setPDBID] = React.useState("4u4bA");
 
     //para la evaluación de qué pantalla usar
     function ChangeWindow({ theWindow }) {
-        if (theWindow == "reference") {
+        if (theWindow === "reference") {
             return <ReferenceWindow handleClose={handleClose} showRepeatsDBWindow={showRepeatsDBWindow} />;
-        } else if (theWindow == "help") {
+        } else if (theWindow === "help") {
             return <HelpWindow handleClose={handleClose} showRepeatsDBWindow={showRepeatsDBWindow} />;
-        } else if (theWindow == "resault") {
+        } else if (theWindow === "resault") {
             return <RepeatsDBResault handleClose={handleClose} showRepeatsDBWindow={showRepeatsDBWindow}
                 accNumber={accNumber} setAccNumber={setAccNumber} PDBID={PDBID} setPDBID={setPDBID} />;
         }
@@ -105,7 +105,7 @@ export default function RepeatsDBModal(props) {
                 aria-describedby="simple-modal-description"
             >
                 <div style={modalStyle} className={classes.paper}>
-                    <Toolbar style={{ padding: "0px", minHeight: "48px" }}>
+                    <Toolbar style={{ padding: "1px", minHeight: "48px" }}>
                         <Grid container justify="flex-end">
                             <Grid item>
                                 <LightTooltip title="Help">

@@ -145,7 +145,7 @@ export default function View(props) {
                 container
                 justify="center"
                 spacing={8}
-                style={{ padding: "40px" }}
+                style={{ padding: "25px" }}
             >
                 <Grid item>
                     <Button

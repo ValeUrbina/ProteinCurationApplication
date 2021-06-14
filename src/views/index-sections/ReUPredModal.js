@@ -65,11 +65,11 @@ export default function ReUPredModal(props) {
 
     //para la evaluación de qué pantalla usar
     function ChangeWindow({ theWindow }) {
-        if (theWindow == "reference") {
+        if (theWindow === "reference") {
             return <ReferenceWindow handleClose={handleClose} showReUPredWindow={showReUPredWindow} />;
-        } else if (theWindow == "help") {
+        } else if (theWindow === "help") {
             return <HelpWindow handleClose={handleClose} showReUPredWindow={showReUPredWindow} />;
-        } else if (theWindow == "resault") {
+        } else if (theWindow === "resault") {
             return <ReUPredResault handleClose={handleClose} showReUPredWindow={showReUPredWindow}
                 accNumber={accNumber} setAccNumber={setAccNumber} PDBID={PDBID} setPDBID={setPDBID} />;
         }

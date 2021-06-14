@@ -78,7 +78,7 @@ export default function View(props) {
                         </span>
                     </Label>
                 </FormGroup>
-                <FormGroup check>
+                {/* <FormGroup check>
                     <Label check>
                         <Input id="exampleCheck1" defaultValue="-m" value="-m" name="exampleCheck" type="checkbox" defaultChecked />
                         {"Specify the message that describes the changes you have made to this family (-m)"}
@@ -86,7 +86,7 @@ export default function View(props) {
                             <span className="check"></span>
                         </span>
                     </Label>
-                </FormGroup>
+                </FormGroup> */}
                 <FormGroup check>
                     <Label check>
                         <Input id="exampleCheck1" defaultValue="-add_to_clan" value="-add_to_clan" name="exampleCheck" type="checkbox" />
@@ -101,7 +101,7 @@ export default function View(props) {
                 container
                 justify="center"
                 spacing={8}
-                style={{ padding: "40px" }}
+                style={{ padding: "25px" }}
             >
                 <Grid item>
                     <Button
@@ -113,7 +113,7 @@ export default function View(props) {
                         onClick={(e) => CloseWindow()}
                     >
                         Cancel
-            </Button>
+                    </Button>
                 </Grid>
                 <Grid item>
                     <Button
@@ -123,7 +123,7 @@ export default function View(props) {
                         style={{ width: "90px" }}
                     >
                         Run
-            </Button>
+                    </Button>
                 </Grid>
             </Grid>
         </Form>

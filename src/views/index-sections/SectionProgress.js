@@ -1,21 +1,4 @@
-/*!
 
-=========================================================
-* Paper Kit React - v1.3.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/paper-kit-react
-
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/paper-kit-react/blob/main/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 
 // reactstrap components
@@ -228,6 +211,7 @@ function SectionProgress() {
                     <NavItem>
                       <NavLink
                         className={activeTab === "1" ? "active" : ""}
+                        style={activeTab === "1" ? { fontWeight: "bold" } : {}}
                         onClick={() => {
                           toggle("1");
                         }}
@@ -238,6 +222,7 @@ function SectionProgress() {
                     <NavItem>
                       <NavLink
                         className={activeTab === "2" ? "active" : ""}
+                        style={activeTab === "3" ? { fontWeight: "bold" } : {}}
                         onClick={() => {
                           toggle("2");
                         }}
@@ -248,6 +233,7 @@ function SectionProgress() {
                     <NavItem>
                       <NavLink
                         className={activeTab === "3" ? "active" : ""}
+                        style={activeTab === "3" ? { fontWeight: "bold" } : {}}
                         onClick={() => {
                           toggle("3");
                         }}

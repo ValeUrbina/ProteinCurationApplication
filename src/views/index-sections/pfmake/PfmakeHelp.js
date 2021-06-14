@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     title: {
         fontSize: "40px",
         fontWeight: "bold",
-        marginBottom: "50px",
+        marginBottom: "30px",
     },
     formStyle: {
         padding: "0px 100px 0px 100px",
@@ -46,8 +46,8 @@ function createData(tag, typeValue, range) {
 }
 
 const rows = [
-    createData("Sequence threshold", "Decimal", "0<X<1"),
-    createData("Domain threshold", "Decimal", "0<X<1"),
+    createData("Sequence threshold", "Decimal", "0<X"),
+    createData("Domain threshold", "Decimal", "0<X"),
     createData("Evalue based Domain threshold", "Decimal", "0<X<1"),
 ];
 
@@ -78,13 +78,13 @@ export default function HelpWindow(props) {
                         <TableRow>
                             <TableCell style={{ width: "250px" }} align="left">
                                 Parameters
-                                </TableCell>
+                            </TableCell>
                             <TableCell style={{ width: "200px" }} align="center">
                                 Type of value
-                                </TableCell>
+                            </TableCell>
                             <TableCell style={{ maxWidth: "150px" }} align="center">
                                 Range
-                                </TableCell>
+                            </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -111,7 +111,7 @@ export default function HelpWindow(props) {
                 container
                 justify="center"
                 spacing={8}
-                style={{ padding: "40px" }}
+                style={{ padding: "25px" }}
             >
                 <Grid item>
                     <Button
@@ -122,7 +122,7 @@ export default function HelpWindow(props) {
                         onClick={(e) => shoPfmakeWindow()}
                     >
                         Return
-            </Button>
+                    </Button>
                     {/* <Button className="btn-round mr-1" color="info" outline type="button">Return</Button> */}
                 </Grid>
                 <Grid item>
@@ -135,7 +135,7 @@ export default function HelpWindow(props) {
                         onClick={(e) => CloseWindow()}
                     >
                         Close
-            </Button>
+                    </Button>
                 </Grid>
             </Grid>
         </Grid>

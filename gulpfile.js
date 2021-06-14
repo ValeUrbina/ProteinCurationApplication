@@ -23,7 +23,7 @@ gulp.task("licenses", async function () {
 
 */`)
     )
-    .pipe(gulp.dest("./", { overwrite: true }));
+    .pipe(gulp.dest("./", { overwrite: false }));
 
   // this is to add Creative Tim licenses in the production mode for the minified html
   gulp
@@ -46,7 +46,7 @@ gulp.task("licenses", async function () {
 
 -->`)
     )
-    .pipe(gulp.dest("./", { overwrite: true }));
+    .pipe(gulp.dest("./", { overwrite: false }));
 
   // this is to add Creative Tim licenses in the production mode for the minified css
   gulp
@@ -69,6 +69,6 @@ gulp.task("licenses", async function () {
 
 */`)
     )
-    .pipe(gulp.dest("./", { overwrite: true }));
+    .pipe(gulp.dest("./", { overwrite: false }));
   return;
 });

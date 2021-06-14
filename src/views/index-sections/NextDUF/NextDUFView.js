@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 export default function View(props) {
     const classes = useStyles();
     const handleClose = props.handleClose;
-    const [nextDUF, setNextDUF] = React.useState("-");
+    const [nextDUF, setNextDUF] = React.useState("DUF6536");
 
     const changeValue = (e, setter) => {
         setter(e.target.value);
@@ -54,7 +54,7 @@ export default function View(props) {
                 container
                 justify="center"
                 spacing={8}
-                style={{ padding: "40px" }}
+                style={{ padding: "25px" }}
             >
                 <Grid item>
                     <Button

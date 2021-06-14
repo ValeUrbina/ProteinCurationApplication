@@ -112,7 +112,7 @@ export default function View(props) {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid container justify="center" spacing={8} style={{ padding: "40px" }}>
+                <Grid container justify="center" spacing={8} style={{ padding: "25px" }}>
                     <Grid item>
                         <Button
                             className="btn-round mr-1"
@@ -134,7 +134,7 @@ export default function View(props) {
                             onClick={(e) => CloseWindow()}
                         >
                             Close
-                    </Button>
+                        </Button>
                     </Grid>
                 </Grid>
             </Grid>

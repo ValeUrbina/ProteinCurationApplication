@@ -51,7 +51,7 @@ export default function ReferenceWindow(props) {
             <Link href="https://doi.org/10.1093/nar/gkr367" onClick={preventDefault}>
                 https://doi.org/10.1093/nar/gkr367
             </Link>
-            <Grid container justify="center" spacing={8} style={{ padding: "40px" }}>
+            <Grid container justify="center" spacing={8} style={{ padding: "25px" }}>
                 <Grid item>
                     <Button
                         className="btn-round mr-1"
@@ -61,7 +61,7 @@ export default function ReferenceWindow(props) {
                         onClick={(e) => showHMMERWindow()}
                     >
                         Return
-                        </Button>
+                    </Button>
                 </Grid>
                 <Grid item>
                     <Button
@@ -73,7 +73,7 @@ export default function ReferenceWindow(props) {
                         onClick={(e) => CloseWindow()}
                     >
                         Close
-                        </Button>
+                    </Button>
                 </Grid>
             </Grid>
         </Grid>

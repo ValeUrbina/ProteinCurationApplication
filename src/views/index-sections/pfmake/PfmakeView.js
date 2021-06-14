@@ -33,10 +33,6 @@ export default function View(props) {
     const changeValue = (e, setter, setErr) => {
         if (isNaN(e.target.value)) {
             setErr("The value must be numeric");
-        } else if (e.target.value > 1) {
-            setErr("The value must be less than 1");
-        } else if (e.target.value < 0) {
-            setErr("The value must be greater than 0");
         } else {
             setter(e.target.value);
             setErr("");
@@ -116,7 +112,7 @@ export default function View(props) {
                 container
                 justify="center"
                 spacing={8}
-                style={{ padding: "40px" }}
+                style={{ padding: "25px" }}
             >
                 <Grid item>
                     <Button
@@ -128,7 +124,7 @@ export default function View(props) {
                         onClick={(e) => CloseWindow()}
                     >
                         Cancel
-            </Button>
+                    </Button>
                 </Grid>
                 <Grid item>
                     <Button
@@ -138,7 +134,7 @@ export default function View(props) {
                         style={{ width: "90px" }}
                     >
                         Run
-            </Button>
+                    </Button>
                 </Grid>
             </Grid>
         </Form>

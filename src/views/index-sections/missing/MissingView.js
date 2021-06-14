@@ -17,15 +17,41 @@ const useStyles = makeStyles((theme) => ({
     inputStyle: {
         width: 590,
     },
+    highlighted: {
+        fontWeight: "bold",
+    }
 }));
 
+const output = `0 Missing, 19 Found. No missing sequences compared to svn copy.`
+
+const found = `A0A127ASD8.1 found
+A0A1C3TJE2.1 found
+A0A1C3TJG8.1 found
+A0A1C3TJH2.1 found
+A0A1C3TJI9.1 found
+A0A1C3TJJ8.1 found
+A0A1C3TMZ5.1 found
+A0A1C3TRD8.1 found
+A0A1C3TRE4.1 found
+A0A1H8NV41.1 found
+A0A1H8R289.1 found
+A0A1S2LE79.1 found
+A0A401SEB8.1 found
+A0A453R5B1.1 found
+A0A453R5H8.1 found
+A0A453R5I3.1 found
+A0A453R5P2.1 found
+C3VPR6.2 found
+F7GIT5.1 found
+`
+const missings = `No missings sequences`
 
 export default function View(props) {
     const classes = useStyles();
     const handleClose = props.handleClose;
-    const [missing, setMissing] = React.useState("");
-    const [missingAcc, setMissingAcc] = React.useState("");
-    const [foundAcc, setFoundAcc] = React.useState("");
+    const [missing, setMissing] = React.useState(output);
+    const [missingAcc, setMissingAcc] = React.useState(missings);
+    const [foundAcc, setFoundAcc] = React.useState(found);
     const [activeTab, setActiveTab] = React.useState("1");
 
     const toggle = (tab) => {
@@ -59,6 +85,7 @@ export default function View(props) {
                         <NavItem>
                             <NavLink
                                 className={activeTab === "1" ? "active" : ""}
+                                style={activeTab === "1" ? { fontWeight: "bold" } : {}}
                                 onClick={() => {
                                     toggle("1");
                                 }}
@@ -69,6 +96,7 @@ export default function View(props) {
                         <NavItem>
                             <NavLink
                                 className={activeTab === "2" ? "active" : ""}
+                                style={activeTab === "2" ? { fontWeight: "bold" } : {}}
                                 onClick={() => {
                                     toggle("2");
                                 }}
@@ -85,7 +113,7 @@ export default function View(props) {
                         <TextField className={classes.inputStyle}
                             disabled
                             multiline
-                            rows={10}
+                            rows={12}
                             placeholder=""
                             required={true}
                             variant="outlined"
@@ -99,7 +127,7 @@ export default function View(props) {
                         <TextField className={classes.inputStyle}
                             disabled
                             multiline
-                            rows={10}
+                            rows={12}
                             placeholder=""
                             required={true}
                             variant="outlined"
@@ -113,7 +141,7 @@ export default function View(props) {
                 container
                 justify="center"
                 spacing={8}
-                style={{ padding: "40px" }}
+                style={{ padding: "20px" }}
             >
                 <Grid item>
                     <Button

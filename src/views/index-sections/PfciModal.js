@@ -123,7 +123,8 @@ export default function PfciModal(props) {
                         </Grid>
                     </Grid>
                     <div>
-                        <ChangeWindow isReference={references} isHelp={help} />
+                        {/* <ChangeWindow isReference={references} isHelp={help} /> */}
+                        <SuccessWindow></SuccessWindow>
                     </div>
                 </div>
             </Modal>

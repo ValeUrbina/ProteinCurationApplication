@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
 export default function View(props) {
     const classes = useStyles();
     const handleClose = props.handleClose;
+    const showEfetchResaultWindow = props.showEfetchResaultWindow;
     const [accNumber, setaccNumber] = React.useState("");
     const [accNumberErr, setaccNumberErr] = React.useState("");
 
@@ -63,7 +64,7 @@ export default function View(props) {
                 container
                 justify="center"
                 spacing={8}
-                style={{ padding: "40px" }}
+                style={{ padding: "25px" }}
             >
                 <Grid item>
                     <Button
@@ -75,7 +76,7 @@ export default function View(props) {
                         onClick={(e) => CloseWindow()}
                     >
                         Cancel
-            </Button>
+                    </Button>
                 </Grid>
                 <Grid item>
                     <Button
@@ -83,9 +84,10 @@ export default function View(props) {
                         color="default"
                         type="button"
                         style={{ width: "90px" }}
+                        onClick={(e) => showEfetchResaultWindow()}
                     >
                         Run
-            </Button>
+                    </Button>
                 </Grid>
             </Grid>
         </Form>

@@ -21,7 +21,7 @@ ReactDOM.render(
   <TerminalContextProvider>
     <BrowserRouter>
       <Switch>
-        <Route path="/index" render={(props) => <Index {...props} />} />
+        <Route path="/" render={(props) => <Index {...props} />} />
       </Switch>
     </BrowserRouter>
   </TerminalContextProvider>,

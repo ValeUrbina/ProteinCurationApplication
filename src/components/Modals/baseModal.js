@@ -70,6 +70,7 @@ export default function SimpleModal(props) {
               <NavItem>
                 <NavLink
                   className={activeTab === "1" ? "active" : ""}
+                  style={activeTab === "1" ? { fontWeight: "bold" } : {}}
                   onClick={() => {
                     toggle("1");
                   }}
@@ -80,6 +81,7 @@ export default function SimpleModal(props) {
               <NavItem>
                 <NavLink
                   className={activeTab === "2" ? "active" : ""}
+                  style={activeTab === "2" ? { fontWeight: "bold" } : {}}
                   onClick={() => {
                     toggle("2");
                   }}

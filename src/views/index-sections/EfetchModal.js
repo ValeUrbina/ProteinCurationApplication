@@ -12,6 +12,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import EfetchWindow from "./efetch/EfetchView"
 import HelpWindow from "./efetch/EfetchHelp"
 import ReferenceWindow from "./efetch/EfetchReference"
+import ResaultWindow from "./efetch/EfetchResaultView"
 import ErrorWindow from "./efetch/EfetchError"
 import LoadingWindow from "./efetch/EfetchLoading"
 
@@ -48,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     title: {
         fontSize: "40px",
         fontWeight: "bold",
-        marginBottom: "50px",
+        marginBottom: "30px",
     },
 }));
 
@@ -57,33 +58,36 @@ export default function EfetchModal(props) {
     const [modalStyle] = React.useState(getModalStyle);
     const open = props.open;
     const handleClose = props.handleClose;
-    const [references, showReferences] = React.useState(false);
-    const [help, showHelp] = React.useState(false);
+    const [window, setWindow] = React.useState("view");
 
     //para la evaluación de qué pantalla usar
-    function ChangeWindow({ isReference, isHelp }) {
-        if (isReference) {
+    function ChangeWindow({ theWindow }) {
+        if (theWindow == "reference") {
             return <ReferenceWindow handleClose={handleClose} showEfetchWindow={showEfetchWindow} />;
-        } else if (isHelp) {
+        } else if (theWindow == "help") {
             return <HelpWindow handleClose={handleClose} showEfetchWindow={showEfetchWindow} />;
-        } else {
-            return <EfetchWindow handleClose={handleClose} />;
+        } else if (theWindow == "resault") {
+            return <ResaultWindow handleClose={handleClose} showEfetchWindow={showEfetchWindow} />;
+        }
+        else {
+            return <EfetchWindow handleClose={handleClose} showEfetchResaultWindow={showEfetchResaultWindow} />;
         }
     }
 
     const showReferenceWindow = () => {
-        showReferences(true);
-        showHelp(false);
+        setWindow("reference");
     };
 
     const showHelpWindow = () => {
-        showHelp(true);
-        showReferences(false);
+        setWindow("help");
+    };
+
+    const showEfetchResaultWindow = () => {
+        setWindow("resault");
     };
 
     const showEfetchWindow = () => {
-        showReferences(false);
-        showHelp(false);
+        setWindow("view");
     };
 
     return (
@@ -117,7 +121,7 @@ export default function EfetchModal(props) {
                         </Grid>
                     </Grid>
                     <div>
-                        <ChangeWindow isReference={references} isHelp={help} />
+                        <ChangeWindow theWindow={window} />
                     </div>
                 </div>
             </Modal>

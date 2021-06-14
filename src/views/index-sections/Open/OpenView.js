@@ -25,10 +25,14 @@ const useStyles = makeStyles((theme) => ({
 export default function View(props) {
     const classes = useStyles();
     const handleClose = props.handleClose;
+    const showOldLoading = props.showOldLoading;
+    const showNewLoading = props.showNewLoading;
     const [curatorID, setCuratorID] = React.useState("");
     const [fileName, setFileName] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [emailErr, setEmailErr] = React.useState("");
     const [pfamCode, setPfamCode] = React.useState("");
-    const [operationID, setOperationID] = React.useState("Project1-12345-4u4bA");
+    const [operationID, setOperationID] = React.useState("prueba1-20160298-PF03377-1623307689");
     const [activeTab, setActiveTab] = React.useState("1");
 
     const toggle = (tab) => {
@@ -41,12 +45,64 @@ export default function View(props) {
         setter(e.target.value);
     }
 
-    const onSubmit = e => {
-        e.preventDefault();
-        handleClose();
+    const validate = () => {
+        let isError = false;
+
+        if (email.length > 200) {
+            isError = true;
+            setEmailErr("Please enter a valid email");
+        }
+
+        if (email.length < 2) {
+            isError = true;
+            setEmailErr("Please enter a valid email");
+        }
+
+        if (email.indexOf("@") === -1) {
+            isError = true;
+            setEmailErr("Please enter a valid email");
+        }
+
+        return isError;
     };
 
-    function CloseWindow() {
+    const CreateNewProject = e => {
+        e.preventDefault();
+        const err = validate();
+        //showNewLoading();
+        if (!err) {
+            //Aqui va el servicio
+            /* UsuariosService.modificarUsuarios(user).then(response => {
+                props.onActualizar();
+                setUsuarioErr("");
+                setNombreErr("");
+                setApellidoErr("");
+                setCorreoErr("");
+                handleClose();
+                console.log(response.data);
+            })
+                .catch(() => {
+                    console.log('Error al editar el usuario')
+                }); */
+        }
+        handleClose();
+    }
+
+    const OpenOldProject = e => {
+        e.preventDefault();
+        //showOldLoading();
+        //Aqui va el servicio
+        /* UsuariosService.modificarUsuarios(user).then(response => {
+            props.onActualizar();
+            setUsuarioErr("");
+            setNombreErr("");
+            setApellidoErr("");
+            setCorreoErr("");
+            handleClose();
+        })
+            .catch(() => {
+                console.log('Error al editar el usuario')
+            }); */
         handleClose();
     }
 
@@ -58,6 +114,7 @@ export default function View(props) {
                         <NavItem>
                             <NavLink
                                 className={activeTab === "1" ? "active" : ""}
+                                style={activeTab === "1" ? { fontWeight: "bold" } : {}}
                                 onClick={() => {
                                     toggle("1");
                                 }}
@@ -68,6 +125,7 @@ export default function View(props) {
                         <NavItem>
                             <NavLink
                                 className={activeTab === "2" ? "active" : ""}
+                                style={activeTab === "2" ? { fontWeight: "bold" } : {}}
                                 onClick={() => {
                                     toggle("2");
                                 }}
@@ -95,13 +153,26 @@ export default function View(props) {
                             />
                             <br />
                             <TextField className={classes.inputStyle}
-                                placeholder="File name"
-                                label="File name"
+                                placeholder="Project name"
+                                label="Project name"
                                 variant="outlined"
                                 value={fileName}
                                 type="text"
                                 onChange={(e) => {
                                     changeValue(e, setFileName);
+                                }}
+                            />
+                            <br />
+                            <TextField className={classes.inputStyle}
+                                placeholder="email"
+                                label="Email"
+                                error={emailErr !== ""}
+                                helperText={emailErr}
+                                variant="outlined"
+                                value={email}
+                                type="text"
+                                onChange={(e) => {
+                                    changeValue(e, setEmail);
                                 }}
                             />
                             <br />
@@ -123,7 +194,7 @@ export default function View(props) {
                                     color="default"
                                     type="button"
                                     style={{ width: "100px" }}
-                                    onClick={e => onSubmit(e)}
+                                    onClick={e => CreateNewProject(e)}
                                 >
                                     Go
                                 </Button>
@@ -149,14 +220,14 @@ export default function View(props) {
                                     }}
                                 />
                             </Grid>
-                            <Grid container justify="center" spacing={8} style={{ padding: "40px" }} >
+                            <Grid container justify="center" spacing={8} style={{ padding: "25px" }} >
                                 <Grid item>
                                     <Button
                                         className="btn-round mr-1"
                                         color="default"
                                         type="button"
                                         style={{ width: "100px" }}
-                                        onClick={(e) => CloseWindow()}
+                                        onClick={(e) => OpenOldProject(e)}
                                     >
                                         Go
                                     </Button>

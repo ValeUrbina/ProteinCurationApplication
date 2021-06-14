@@ -18,13 +18,12 @@ import ErrorWindow from "./HMMER/HMMERError"
 import LoadingWindow from "./HMMER/HMMERLoading"
 
 function getModalStyle() {
-    const width = 859;
+    const width = 930;
     const top = 40;
     return {
         top: `${top}px`,
         left: `calc((100% - ${width}px)/2)`,
         height: "fit-content",
-        //minHeight: "400px"
     };
 }
 
@@ -40,7 +39,7 @@ const LightTooltip = withStyles((theme) => ({
 const useStyles = makeStyles((theme) => ({
     paper: {
         position: "absolute",
-        width: 859,
+        width: 930,
         height: 850,
         backgroundColor: theme.palette.background.paper,
         borderRadius: "20px",
@@ -63,11 +62,11 @@ export default function HMMERModal(props) {
 
     //para la evaluación de qué pantalla usar
     function ChangeWindow({ theWindow }) {
-        if (theWindow == "reference") {
+        if (theWindow === "reference") {
             return <ReferenceWindow handleClose={handleClose} showHMMERWindow={showHMMERWindow} />;
-        } else if (theWindow == "help") {
+        } else if (theWindow === "help") {
             return <HelpWindow handleClose={handleClose} showHMMERWindow={showHMMERWindow} />;
-        } else if (theWindow == "resault") {
+        } else if (theWindow === "resault") {
             return <HMMERResault handleClose={handleClose} showHMMERWindow={showHMMERWindow} />;
         }
         else {

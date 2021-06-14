@@ -77,13 +77,7 @@ export default function LoadingWindow(props) {
                 className={classes.loadingStyle}
                 style={{ padding: "30px 0px 10px 0px" }}
             >
-                Running SPCleaner, this may take a few minutes
-        </div>
-            <div
-                className={classes.loadingStyle}
-                style={{ padding: "0px 0px 80px 0px" }}
-            >
-                {"Step of the processs: Trimming"}
+                Loading the project, this may take a few seconds
             </div>
         </Grid>
     );

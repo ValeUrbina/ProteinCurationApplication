@@ -1,22 +1,5 @@
-/*!
-
- =========================================================
- * Paper Kit React - v1.3.0 based on Paper Kit - v2.2.0
- =========================================================
-
- * Product Page: https://www.creative-tim.com/product/paper-kit-2
- * Copyright 2021 Creative Tim (http://www.creative-tim.com)
-
- * Designed by www.invisionapp.com Coded by www.creative-tim.com
-
- =========================================================
-
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
- */
-
-@import 'paper-kit/variables';
-@import 'paper-kit/mixins';
+@import "paper-kit/variables";
+@import "paper-kit/mixins";
 
 // Plugins CSS
 @import "paper-kit/plugins/plugin-bootstrap-switch";
@@ -58,8 +41,7 @@
 @import "paper-kit/examples";
 @import "paper-kit/sections";
 
-
 @import "paper-kit/responsive";
 
 // React Differences
-@import "react/react-differences.scss"
+@import "react/react-differences.scss";

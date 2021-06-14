@@ -5,6 +5,8 @@ import Modal from "@material-ui/core/Modal";
 import Grid from "@material-ui/core/Grid";
 //Para las vistas
 import OpenWindow from "./Open/OpenView"
+import LoadingNewWindow from "./Open/OpenNewLoading";
+import LoadingOldWindow from "./Open/OpenOldLoading";
 
 function getModalStyle() {
     const width = 859;
@@ -37,8 +39,32 @@ const useStyles = makeStyles((theme) => ({
 export default function SPCleanerModal(props) {
     const classes = useStyles();
     const [modalStyle] = React.useState(getModalStyle);
+    const [window, setWindow] = React.useState("view");
     const open = props.open;
     const handleClose = props.handleClose;
+
+    //para la evaluación de qué pantalla usar
+    function ChangeWindow({ theWindow }) {
+        if (theWindow === "loadnew") {
+            return <LoadingNewWindow handleClose={handleClose} showNewLoading={showNewLoading} />;
+        } else if (theWindow === "loadold") {
+            return <LoadingOldWindow handleClose={handleClose} showOldLoading={showOldLoading} />;
+        } else {
+            return <OpenWindow handleClose={handleClose} />;
+        }
+    }
+
+    const showOldLoading = () => {
+        setWindow("loadnew");
+    };
+
+    const showNewLoading = () => {
+        setWindow("loadold");
+    };
+
+    const showHMMERWindow = () => {
+        setWindow("view");
+    };
 
     return (
         <div>
@@ -55,7 +81,7 @@ export default function SPCleanerModal(props) {
                         </Grid>
                     </Grid>
                     <div>
-                        <OpenWindow handleClose={handleClose} />
+                        <ChangeWindow theWindow={window} />
                     </div>
                 </div>
             </Modal>

@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
     root: {
         width: '95%',
-        maxHeight: 300,
+        maxHeight: 350,
         backgroundColor: theme.palette.background.paper,
         position: 'relative',
         overflow: 'auto',
@@ -77,7 +77,10 @@ export default function View(props) {
                         </List>
                     </Grid>
                 </Grid>
-                <Grid container justify="center" spacing={8} style={{ padding: "40px" }}>
+                <Grid container
+                    justify="center"
+                    spacing={8}
+                    style={{ padding: "25px" }}>
                     <Grid item>
                         <Button
                             className="btn-round mr-1"
@@ -99,7 +102,7 @@ export default function View(props) {
                             onClick={(e) => CloseWindow()}
                         >
                             Close
-                    </Button>
+                        </Button>
                     </Grid>
                 </Grid>
             </Grid>

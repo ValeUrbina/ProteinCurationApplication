@@ -66,7 +66,7 @@ export default function ReferenceWindow(props) {
                 container
                 justify="center"
                 spacing={8}
-                style={{ padding: "40px" }}
+                style={{ padding: "25px" }}
             >
                 <Grid item>
                     <Button
@@ -77,7 +77,7 @@ export default function ReferenceWindow(props) {
                         onClick={(e) => showRepeatsDBWindow()}
                     >
                         Return
-                        </Button>
+                    </Button>
                     {/* <Button className="btn-round mr-1" color="info" outline type="button">Return</Button> */}
                 </Grid>
                 <Grid item>
@@ -90,7 +90,7 @@ export default function ReferenceWindow(props) {
                         onClick={(e) => CloseWindow()}
                     >
                         Close
-                        </Button>
+                    </Button>
                 </Grid>
             </Grid>
         </Grid>

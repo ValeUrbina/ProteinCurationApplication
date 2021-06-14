@@ -120,7 +120,10 @@ export default function View(props) {
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid container justify="center" style={{ padding: "30px 0px 0px 10px" }} >
+            <Grid container
+                justify="center"
+                spacing={8}
+                style={{ padding: "30px 0px 0px 10px" }} >
                 <Grid item>
                     <Button
                         className="btn-round mr-1"

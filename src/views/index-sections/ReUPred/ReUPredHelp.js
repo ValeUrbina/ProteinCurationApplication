@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     title: {
         fontSize: "40px",
         fontWeight: "bold",
-        marginBottom: "50px",
+        marginBottom: "30px",
     },
     formStyle: {
         padding: "0px 100px 0px 100px",
@@ -65,7 +65,7 @@ export default function HelpWindow(props) {
                 container
                 justify="center"
                 spacing={8}
-                style={{ padding: "40px" }}
+                style={{ padding: "25px" }}
             >
                 <Grid item>
                     <Button
@@ -76,7 +76,7 @@ export default function HelpWindow(props) {
                         onClick={(e) => showReUPredWindow()}
                     >
                         Return
-            </Button>
+                    </Button>
                 </Grid>
                 <Grid item>
                     <Button
@@ -88,7 +88,7 @@ export default function HelpWindow(props) {
                         onClick={(e) => CloseWindow()}
                     >
                         Close
-            </Button>
+                    </Button>
                 </Grid>
             </Grid>
         </Grid>

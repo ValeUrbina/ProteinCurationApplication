@@ -107,7 +107,7 @@ export default function View(props) {
                 container
                 justify="center"
                 spacing={8}
-                style={{ padding: "40px" }}
+                style={{ padding: "25px" }}
             >
                 <Grid item>
                     <Button
@@ -119,7 +119,7 @@ export default function View(props) {
                         onClick={(e) => CloseWindow()}
                     >
                         Cancel
-            </Button>
+                    </Button>
                 </Grid>
                 <Grid item>
                     <Button
@@ -129,7 +129,7 @@ export default function View(props) {
                         style={{ width: "90px" }}
                     >
                         Run
-            </Button>
+                    </Button>
                 </Grid>
             </Grid>
         </Form>
