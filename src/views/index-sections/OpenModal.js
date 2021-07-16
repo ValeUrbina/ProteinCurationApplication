@@ -46,11 +46,11 @@ export default function SPCleanerModal(props) {
     //para la evaluación de qué pantalla usar
     function ChangeWindow({ theWindow }) {
         if (theWindow === "loadnew") {
-            return <LoadingNewWindow handleClose={handleClose} showNewLoading={showNewLoading} />;
+            return <LoadingNewWindow handleClose={handleClose} />;
         } else if (theWindow === "loadold") {
-            return <LoadingOldWindow handleClose={handleClose} showOldLoading={showOldLoading} />;
+            return <LoadingOldWindow handleClose={handleClose} />;
         } else {
-            return <OpenWindow handleClose={handleClose} />;
+            return <OpenWindow handleClose={handleClose} showNewLoading={showNewLoading} showOldLoading={showOldLoading} />;
         }
     }
 
@@ -60,10 +60,6 @@ export default function SPCleanerModal(props) {
 
     const showNewLoading = () => {
         setWindow("loadold");
-    };
-
-    const showHMMERWindow = () => {
-        setWindow("view");
     };
 
     return (

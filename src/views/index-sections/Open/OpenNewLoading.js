@@ -55,12 +55,13 @@ function LinearProgressWithLabel(props) {
 export default function LoadingWindow(props) {
     const classes = useStyles();
     const [progress, setProgress] = React.useState(0);
+    const handleClose = props.handleClose;
 
     React.useEffect(() => {
         //esto debe ser reemplazado por el verdadero progreso
         const timer = setInterval(() => {
             setProgress((prevProgress) =>
-                prevProgress >= 100 ? 1 : prevProgress + 2
+                prevProgress >= 100 ? handleClose() : prevProgress + 25
             );
         }, 800);
         return () => {

@@ -117,7 +117,8 @@ function Index() {
   const [projectName, setProjectName] = React.useState("");
   const [curatorID, setCuratorID] = React.useState("");
   const [email, setEmail] = React.useState("");
-  const [pfcode, setPfcode] = React.useState("PF03377");
+  const [pfcode, setPfcode] = React.useState("-");
+  const [alignURL, setAlignURL] = React.useState("-");
 
   React.useEffect(() => {
     document.body.classList.add("index");
@@ -130,6 +131,16 @@ function Index() {
 
   const handleClose = () => {
     setOpen("");
+  };
+
+  const updateProyect = () => {
+    setPfcode("PF03377");
+    updateAlign("https://prueba-tesis2.s3.amazonaws.com/ALIGNv1.fasta");
+    setOpen("");
+  };
+
+  const updateAlign = (url) => {
+    setAlignURL(url);
   };
 
   function MyTerminal(props) {
@@ -186,13 +197,13 @@ function Index() {
           </div>
           <div className={classes.verticalBox}>
             <IconButton style={{ padding: "2px" }}>
-              <UndoIcon className={classes.icon2} />
+              <UndoIcon className={classes.icon2} onClick={(e) => updateAlign("https://prueba-tesis2.s3.amazonaws.com/ALIGNv2left.fasta")} />
             </IconButton>
             <div className={classes.buttonText}>Undo</div>
           </div>
           <div className={classes.verticalBox}>
             <IconButton style={{ padding: "2px" }}>
-              <RedoIcon className={classes.icon2} />
+              <RedoIcon className={classes.icon2} onClick={(e) => updateAlign("https://prueba-tesis2.s3.amazonaws.com/ALIGNv2right.fasta")} />
             </IconButton>
             <div className={classes.buttonText}>Redo</div>
           </div>
@@ -210,7 +221,7 @@ function Index() {
           </div>
           <div className={classes.verticalBox}>
             <IconButton style={{ padding: "2px", transform: "scaleX(-1)" }}>
-              <BackspaceIcon className={classes.icon2} />
+              <BackspaceIcon className={classes.icon2} onClick={(e) => updateAlign("https://prueba-tesis2.s3.amazonaws.com/ALIGNv2right.fasta")} />
             </IconButton>
             <div className={classes.buttonText}>Del right</div>
           </div>
@@ -220,7 +231,6 @@ function Index() {
                 component={ReUPred} onClick={(e) => setOpen("ReUPred")}
               ></SvgIcon>
             </IconButton>
-
             <div className={classes.buttonText} style={{ padding: "2px 0px 0px 0px" }}>
               ReUPred
             </div>
@@ -257,7 +267,7 @@ function Index() {
           </div>
         </Toolbar>
 
-        <SequenceViewer className={classes.root} />
+        {alignURL !== "-" ? <SequenceViewer id="sequenceviewer" className={classes.root} alignURL={alignURL} /> : <div style={{ height: "39vh", backgroundColor: "#FFFFFF", margin: "10px" }}>Waiting for Pfam Align</div>}
 
         <SPCleanerModal open={open === "SPCleaner"} handleClose={handleClose} />
         <EfetchModal open={open === "efetch"} handleClose={handleClose} />
@@ -275,7 +285,7 @@ function Index() {
         <RepeatsDBModal open={open === "RepeatsDB"} handleClose={handleClose} />
         <ReUPredModal open={open === "ReUPred"} handleClose={handleClose} />
         <SaveModal open={open === "Save"} handleClose={handleClose} />
-        <OpenModal open={open === "Open"} handleClose={handleClose} />
+        <OpenModal open={open === "Open"} handleClose={updateProyect} />
 
         <div style={{ height: "38vh" }}>
           <MyTerminal />

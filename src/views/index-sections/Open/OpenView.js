@@ -66,10 +66,12 @@ export default function View(props) {
         return isError;
     };
 
-    const CreateNewProject = e => {
+    const CreateNewProject = (e) => {
         e.preventDefault();
         const err = validate();
-        //showNewLoading();
+
+        showNewLoading();
+
         if (!err) {
             //Aqui va el servicio
             /* UsuariosService.modificarUsuarios(user).then(response => {
@@ -85,12 +87,13 @@ export default function View(props) {
                     console.log('Error al editar el usuario')
                 }); */
         }
-        handleClose();
+        // handleClose();
     }
 
     const OpenOldProject = e => {
         e.preventDefault();
-        //showOldLoading();
+        showOldLoading();
+
         //Aqui va el servicio
         /* UsuariosService.modificarUsuarios(user).then(response => {
             props.onActualizar();
@@ -103,7 +106,7 @@ export default function View(props) {
             .catch(() => {
                 console.log('Error al editar el usuario')
             }); */
-        handleClose();
+        // handleClose();
     }
 
     return (
